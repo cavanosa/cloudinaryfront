@@ -1,0 +1,21 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Subiendo imagen...</p>
+</ngx-spinner>
+
+<form (ngSubmit)="onUpload()" novalidate enctype="multipart/form-data">
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="imagen" #imagenInputFile
+        (change)="onFileChange($event)" accept="image/png, image/jpeg, image/gif">
+        <label class="custom-file-label" for="imagen">Elige una imagen</label>
+    </div>
+    <div *ngIf="imagen" class="mt-5">
+        <h5>Vista Previa:</h5>
+        <div>
+            <img class="image-thumbnail" style="max-width: 100px" [src]="imagenMin">
+        </div>
+    </div>
+    <div class="form-group d-flex justify-content-between my-3">
+        <button type="submit" class="btn btn-outline-success" [disabled]="!imagen"><i class="fas fa-upload"></i> Subir</button>
+        <button class="btn btn-outline-danger" [disabled]="!imagen" (click)="reset()"><i class="fas fa-sync-alt"></i> Reset</button>
+    </div>
+</form>

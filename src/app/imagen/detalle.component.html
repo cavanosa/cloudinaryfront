@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h5 class="modal-title">Galería</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+    (click)="activeModal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <swiper [config]="config">
+        <div *ngFor="let imagen of imagenes" class="swiper-slide">
+          <div class="thumbnail text-center">
+            <img class="img-thumbnail img-rounded" src="{{imagen.imagenUrl}}" alt="">
+          </div>
+        </div>
+      </swiper>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-info btn-block"
+    (click)="activeModal.dismiss()"><i class="fas fa-window-close"></i> Cerrar</button>
+</div>

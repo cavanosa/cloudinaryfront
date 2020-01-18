@@ -1,0 +1,26 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Eliminando imagen...</p>
+</ngx-spinner>
+
+<div class="row">
+    <div class="col-md-4" *ngFor="let imagen of imagenes; index as i">
+        <div class="card mb-3 animated zoomIn">
+            <h3 class="card-header">{{imagen.name}}</h3>
+            <div class="card-body">
+              <h5 class="card-title"><b>ID: </b>{{imagen.imagenId}}</h5>
+            </div>
+            <div class="card-body text-center">
+            <img style="height: 200px; width: 100%; display: block;" src="{{imagen.imagenUrl}}" alt="Card image">
+            </div>
+            
+            <div class="card-body d-flex justify-content-between">
+              <button class="btn btn-outline-primary" (click)="abrirModal(i)"><i class="far fa-eye"></i> Ver</button>
+              <button class="btn btn-outline-danger" (click)="borrar(imagen.id)"><i class="far fa-trash-alt"></i> Borrar</button>
+            </div>
+            <div class="card-footer text-center">
+              &copy; marca personal
+            </div>
+          </div>
+        
+    </div>
+</div>
